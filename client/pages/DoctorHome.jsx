@@ -1,0 +1,13 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { CalendarDays, FileText, HeartPulse, Home, UserRound } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
+const navigation = [
+    { label: "Profile", icon: UserRound, path: "/doctor-profile" },
+    { label: "Patient Records", icon: FileText, path: "/doctor-home" },
+    { label: "Appointments", icon: CalendarDays, path: "/doctor-home" },
+];
+export default function DoctorHome() {
+    const location = useLocation();
+    return (_jsxs("div", { className: "min-h-screen bg-background text-foreground", children: [_jsxs("aside", { className: "relative flex w-full flex-col border-b border-border bg-card px-5 py-6 md:fixed md:inset-y-0 md:left-0 md:w-72 md:border-b-0 md:border-r", children: [_jsxs(Link, { to: "/", className: "flex items-center gap-3 px-3", children: [_jsx("div", { className: "flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground", children: _jsx(HeartPulse, { className: "h-5 w-5" }) }), _jsx("span", { className: "text-lg font-bold tracking-tight", children: "ArogyaAI" })] }), _jsxs("div", { className: "mt-12 px-3", children: [_jsx("p", { className: "text-xs font-semibold uppercase tracking-widest text-muted-foreground", children: "Practice" }), _jsx("nav", { className: "mt-4 space-y-2", children: navigation.map(({ label, icon: Icon, path }) => (_jsxs(Link, { to: path, className: cn("flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground", label === "Profile" && location.pathname === "/doctor-profile" && "bg-accent text-accent-foreground"), children: [_jsx(Icon, { className: "h-5 w-5" }), label] }, label))) })] }), _jsx("div", { className: "mt-auto border-t border-border pt-5", children: _jsxs(Link, { to: "/", className: "flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground", children: [_jsx(Home, { className: "h-5 w-5" }), "Home"] }) })] }), _jsx("main", { className: "min-h-screen p-6 sm:p-10 md:ml-72", children: _jsxs("div", { className: "mx-auto max-w-5xl", children: [_jsxs("header", { children: [_jsx("p", { className: "text-sm font-medium text-primary", children: "Welcome back" }), _jsx("h1", { className: "mt-2 text-3xl font-bold tracking-tight", children: "Your practice space" })] }), _jsx("div", { className: "mt-10 min-h-[calc(100vh-220px)] rounded-3xl border border-dashed border-border bg-card/30" })] }) })] }));
+}
